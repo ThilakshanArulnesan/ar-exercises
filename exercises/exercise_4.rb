@@ -17,7 +17,7 @@ s4 = Store.create(
 s5 = Store.create(
   name: "Faketown",
   annual_revenue: 224_000,
-  mens_apparel:true,
+  mens_apparel:false,
   womens_apparel:false
 )
 

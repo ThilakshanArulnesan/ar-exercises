@@ -8,7 +8,7 @@ puts "----------"
 @store1 = Store.first
 @store2 = Store.find_by(id: 2)
 
-@store1.name="something";
+@store1.name = "something";
 
 @store1.save
 
