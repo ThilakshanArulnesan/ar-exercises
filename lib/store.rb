@@ -3,7 +3,7 @@ class Store < ActiveRecord::Base
   validates :name, length: {minimum: 3}
   validates :annual_revenue, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validate :at_least_one_gender
-  before_destory :check_can_destory
+  before_destroy :check_can_destory
 
   def at_least_one_gender
     if ( !mens_apparel && !womens_apparel )
@@ -14,11 +14,12 @@ class Store < ActiveRecord::Base
 
   private
   def check_can_destory
-    if(self.employees ==0) then
-      errors.add("could not destroy, store not empty");
+    if(self.employees.length != 0) then
+      errors.add(:base,"could not destroy, store not empty");
       return false
     else
       return true
+    end
 
   end
 
